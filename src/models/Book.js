@@ -15,9 +15,10 @@ const bookSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
-},
-{
-  timestamps: true,
+  date: {
+    type: Date,
+    default: Date.now,
+  },
 });
 const Book = mongoose.model('book', bookSchema);
 export default Book;

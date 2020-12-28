@@ -13,6 +13,9 @@
     "rules": {
         "no-console":"off",
         "linebreak-style": "off",
-        "no-underscore-dangle":"off"
+        "no-underscore-dangle":"off",
+        "max-classes-per-file": "off",
+        "lines-between-class-members":"off",
+        "class-methods-use-this":"off"
     }
 }

@@ -11,7 +11,7 @@ import accessControl from '../middlewares/accessControl';
 
 const router = express.Router();
 
-router.route('/').get(accessControl, getBook);
+router.route('/add').get(accessControl, getBook);
 router.route('/').post(handleValidations(validation.bookValidation), addBook);
 router.route('/:id').put(updateBook).delete(deleteBook);
 

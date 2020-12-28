@@ -8,7 +8,7 @@ export const addBookService = async (book) => {
 };
 
 export const getBookService = async (query) => {
-  const book = await Book.findOne({ query });
+  const book = await Book.find({ query });
   return book;
 };
 

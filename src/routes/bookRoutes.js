@@ -7,12 +7,12 @@ import {
 } from '../controllers/bookController';
 import { handleValidations } from '../middlewares/handleValidation';
 import validation from '../models/validation/index';
-import accessControl from '../middlewares/accessControl';
+import accessControlBookRoute from '../middlewares/accessControlBookRoute';
 
 const router = express.Router();
 
-router.route('/add').get(accessControl, getBook);
-router.route('/').post(handleValidations(validation.bookValidation), addBook);
+router.route('/').get(accessControlBookRoute, getBook);
+router.route('/add').post(handleValidations(validation.bookValidation), addBook);
 router.route('/:id').put(updateBook).delete(deleteBook);
 
 const configure = (app) => {

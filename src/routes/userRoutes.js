@@ -5,11 +5,12 @@ import {
   updateUser,
   deleteUser,
 } from '../controllers/userController';
+import accessControl from '../middlewares/accessControl';
 
 const router = express.Router();
 
 router.route('/').post(addUser);
-router.route('/:number').get(getUser);
+router.route('/:number').get(accessControl, getUser);
 router.route('/:id').put(updateUser).delete(deleteUser);
 
 const configure = (app) => {

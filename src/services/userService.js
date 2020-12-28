@@ -23,6 +23,6 @@ export const deleteUserService = async (id) => {
 };
 
 export const checkTempUserService = async (id) => {
-  const checkTemp = await (await User.findOne({ id })).isSelected('tempDelete');
+  const checkTemp = await (await User.findOne(id)).isSelected('tempDelete');
   return checkTemp;
 };

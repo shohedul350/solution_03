@@ -6,7 +6,7 @@ import {
   deleteUserService,
   checkTempUserService,
 } from '../services/userService';
-import { BadRequest, NotFound } from '../utils/generalError';
+import { NotFound } from '../utils/generalError';
 
 export const addUser = asyncHandler(async (req, res) => {
   const newUser = await addUserService(req.body);
@@ -15,9 +15,6 @@ export const addUser = asyncHandler(async (req, res) => {
 
 export const getUser = asyncHandler(async (req, res) => {
   const user = await getUserService(req.params.number);
-  if (!user || user.tempDeleted === true) {
-    throw new NotFound('User not found');
-  }
   return res.status(200).json({ user, msg: 'User fetch successfully' });
 });
 

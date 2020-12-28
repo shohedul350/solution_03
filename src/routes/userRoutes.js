@@ -5,11 +5,13 @@ import {
   updateUser,
   deleteUser,
 } from '../controllers/userController';
+import { handleValidations } from '../middlewares/handleValidation';
+import validation from '../models/validation/index';
 import accessControl from '../middlewares/accessControl';
 
 const router = express.Router();
 
-router.route('/').post(addUser);
+router.route('/').post(handleValidations(validation.userValidation), addUser);
 router.route('/:number').get(accessControl, getUser);
 router.route('/:id').put(updateUser).delete(deleteUser);
 

@@ -28,7 +28,7 @@ export const updateUser = asyncHandler(async (req, res) => {
 });
 
 export const deleteUser = asyncHandler(async (req, res) => {
-  const user = checkTempUserService(req.params.id);
+  const user = await checkTempUserService(req.params.id);
   if (!user || user.tempDeleted === true) {
     throw new NotFound('User not found');
   }

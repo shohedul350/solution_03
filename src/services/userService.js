@@ -13,12 +13,12 @@ export const getUserService = async (number) => {
 };
 
 export const updateUserService = async (id, data) => {
-  const updatedUser = User.findByIdAndUpdate(id, data, { new: true });
+  const updatedUser = await User.findByIdAndUpdate(id, data, { new: true });
   return updatedUser;
 };
 
 export const deleteUserService = async (id) => {
-  const deletedUser = User.findByIdAndUpdate(id, { tempDeleted: true }, { new: true });
+  const deletedUser = await User.findByIdAndUpdate(id, { tempDeleted: true }, { new: true });
   return deletedUser;
 };
 

@@ -3,7 +3,10 @@ import { getBookService } from '../services/bookServices';
 import asyncHandler from '../utils/asyncHandler';
 
 const accessControlBookRoute = asyncHandler(async (req, res, next) => {
-  if (!req.body.role === 'librarian' || !req.body.role === 'student') {
+  const { role } = req.body;
+  const checkRole = ['student', 'librarian'];
+
+  if (!role || !checkRole.includes(role)) {
     throw new BadRequest('You are not authorize to access this information');
   }
 

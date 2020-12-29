@@ -6,10 +6,9 @@ const bookSchema = mongoose.Schema({
   },
   author: {
     type: String,
-    unique: true,
   },
   price: {
-    type: String,
+    type: Number,
   },
   tempDeleted: {
     type: Boolean,

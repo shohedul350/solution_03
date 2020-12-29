@@ -16,7 +16,11 @@ const accessControl = asyncHandler(async (req, res, next) => {
     return next();
   }
 
-  throw new BadRequest('You are not authorize to access this route');
+  throw new BadRequest('You are not authorize to access this information');
 });
 
 export default accessControl;
+
+//  There is no authentication system that's why the user's role taken from the request body.
+// if I have jwt token with the request header..
+//  Then the user's role could have been taken from the request header.

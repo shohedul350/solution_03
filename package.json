@@ -2,7 +2,7 @@
   "name": "library_api",
   "version": "1.0.0",
   "description": "Simple Library REST Full API",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "start": "node -r esm src/server.js",
     "server": "nodemon -r esm src/server.js"

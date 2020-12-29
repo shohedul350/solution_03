@@ -7,8 +7,18 @@ export const addBookService = async (book) => {
   return newBook;
 };
 
-export const getBookService = async (query) => {
-  const book = await Book.find({ query });
+export const getBookService = async (data) => {
+  const { bookName, author } = data;
+  let query = {};
+
+  if (bookName && bookName !== 'undefined') {
+    query.bookName = bookName;
+  }
+
+  if (author && author !== 'undefined') {
+    query.author = author;
+  }
+  const book = await Book.findOne(query);
   return book;
 };
 

@@ -29,8 +29,11 @@ export const updateUser = asyncHandler(async (req, res) => {
 
 export const deleteUser = asyncHandler(async (req, res) => {
   const user = await checkTempUserService(req.params.id);
-  if (!user || user.tempDeleted === true) {
+  if (!user) {
     throw new NotFound(`User not found in this id:${req.params.id}`);
+  }
+  if (user && user.tempDeleted === true) {
+    throw new NotFound('You have already deleted');
   }
   const deletedUser = await deleteUserService(req.params.id);
   return res.status(200).json({ deletedUser, msg: `${deleteUser.role} delete successfully` });
